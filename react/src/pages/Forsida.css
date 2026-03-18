@@ -22,7 +22,17 @@
 
 .forsida-cta-photo {
   flex: 1;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.forsida-cta-photo img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: cover;
 }
 
 .forsida-photo-placeholder {

@@ -91,7 +91,8 @@
         "drupal/webform": "^6.3-beta3",
         "drupal/yoast_seo": "^2.1",
         "drush/drush": "^13.7",
-        "league/commonmark": "^2.4"
+        "league/commonmark": "^2.4",
+        "stripe/stripe-php": "^19.4"
     },
     "conflict": {
         "drupal/drupal": "*"

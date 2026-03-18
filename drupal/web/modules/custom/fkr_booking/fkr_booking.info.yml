@@ -1,0 +1,5 @@
+name: FKR Booking
+type: module
+description: Booking system for FKR Reykjavík
+core_version_requirement: ^10 || ^11
+package: Custom

@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
+import fkrBanner from '../assets/FKR_Banner hvítur.svg';
 import './Navbar.css';
 
 function Navbar() {
   return (
     <nav>
       <div className="navbar-logo">
-        <NavLink to="/">FKR Rvk.</NavLink>
+        <NavLink to="/"><img src={fkrBanner} alt="FKR Reykjavík" /></NavLink>
       </div>
       <ul>
         <li><NavLink to="/boka-tima" className={({ isActive }) => isActive ? 'active' : ''}>Bóka Tíma</NavLink></li>

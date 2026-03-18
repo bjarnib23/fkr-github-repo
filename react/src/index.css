@@ -5,20 +5,21 @@
 }
 
 :root {
-  --color-bg: #F5F0E8;
+  --color-bg: #f4eded;
   --color-green: #2D5247;
   --color-copper: #C4956A;
   --color-text: #1a1a1a;
   --color-text-light: #555;
-  --font-serif: Georgia, 'Times New Roman', serif;
-  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Times New Roman', Times, serif;
+  --font-sans: 'Times New Roman', Times, serif;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-sans);
-  font-size: 16px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 500;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }

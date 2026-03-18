@@ -11,12 +11,9 @@ nav {
   z-index: 100;
 }
 
-.navbar-logo a {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--color-text);
-  letter-spacing: 0.05em;
+.navbar-logo a img {
+  height: 40px;
+  display: block;
 }
 
 nav ul {

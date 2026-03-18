@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * Creates the fkr_bookings database table.
+ */
+function fkr_booking_schema() {
+  return [
+    'fkr_bookings' => [
+      'description' => 'Stores bookings for FKR Reykjavík.',
+      'fields' => [
+        'id' => [
+          'type' => 'serial',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ],
+        'nafn' => [
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ],
+        'tolvupostur' => [
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ],
+        'simi' => [
+          'type' => 'varchar',
+          'length' => 50,
+          'not null' => TRUE,
+        ],
+        'panta' => [
+          'type' => 'text',
+          'not null' => FALSE,
+        ],
+        'dagsetning' => [
+          'type' => 'varchar',
+          'length' => 20,
+          'not null' => FALSE,
+        ],
+        'athugasemd' => [
+          'type' => 'text',
+          'not null' => FALSE,
+        ],
+        'created' => [
+          'type' => 'int',
+          'not null' => TRUE,
+        ],
+      ],
+        'primary key' => ['id'],
+    ],
+    'fkr_gjafabref' => [
+      'description' => 'Stores gift card orders for FKR Reykjavík.',
+      'fields' => [
+        'id' => ['type' => 'serial', 'unsigned' => TRUE, 'not null' => TRUE],
+        'upphaed' => ['type' => 'varchar', 'length' => 100, 'not null' => TRUE],
+        'nafn_kaupanda' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+        'nafn_vidtakanda' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+        'tolvupostur' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+        'simi' => ['type' => 'varchar', 'length' => 50, 'not null' => TRUE],
+        'athugasemd' => ['type' => 'text', 'not null' => FALSE],
+        'created' => ['type' => 'int', 'not null' => TRUE],
+      ],
+      'primary key' => ['id'],
+    ],
+  ];
+}

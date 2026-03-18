@@ -1,0 +1,13 @@
+fkr_booking.admin:
+  title: 'Bókanir'
+  description: 'Skoða allar bókanir frá vefsíðunni'
+  route_name: fkr_booking.admin
+  parent: system.admin
+  weight: 10
+
+fkr_booking.gjafabref_admin:
+  title: 'Gjafabréf pantanir'
+  description: 'Skoða allar gjafabréfspantanir frá vefsíðunni'
+  route_name: fkr_booking.gjafabref_admin
+  parent: system.admin
+  weight: 11

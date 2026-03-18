@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Forsida from './pages/Forsida';
 import BokaTima from './pages/BokaTima';
 import Ferlid from './pages/Ferlid';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/verdskra" element={<Verdskra />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }

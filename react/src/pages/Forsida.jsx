@@ -1,8 +1,25 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import fkrHero from '../assets/FKR_Fullt logo - update.svg';
 import './Forsida.css';
 
+const DRUPAL_URL = 'http://fkr-web.ddev.site';
+
 function Forsida() {
+  const [photoUrl, setPhotoUrl] = useState(null);
+
+  useEffect(() => {
+    fetch(`${DRUPAL_URL}/jsonapi/node/siduefni?filter[title]=Forsíða&include=field_mynd,field_mynd.field_media_image`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.included) {
+          const file = data.included.find(item => item.type === 'file--file');
+          if (file) setPhotoUrl(DRUPAL_URL + file.attributes.uri.url);
+        }
+      })
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <div className="forsida">
 
@@ -14,22 +31,16 @@ function Forsida() {
       {/* Middle section - photo + CTA */}
       <section className="forsida-cta">
         <div className="forsida-cta-photo">
-          {/* Dynamic photo from Drupal will go here */}
-          <div className="forsida-photo-placeholder" />
+          {photoUrl
+            ? <img src={photoUrl} alt="Forsíða" />
+            : <div className="forsida-photo-placeholder" />
+          }
         </div>
         <div className="forsida-cta-text">
-          <h1>Sérsaumuð jakkafót</h1>
+          <h1>Sérsaumuð jakkaföt</h1>
           <Link to="/boka-tima" className="btn-primary">Bóka Tíma</Link>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="forsida-footer">
-        <p><strong>Upplýsingar</strong></p>
-        <p>Fossvogur, Reykjavík</p>
-        <p>kt: 550825-0150</p>
-        <p>Sími: 691 0040</p>
-      </footer>
 
     </div>
   );
