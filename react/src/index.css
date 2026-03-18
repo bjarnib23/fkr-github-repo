@@ -45,3 +45,17 @@ h1, h2, h3 {
   font-family: var(--font-serif);
   font-weight: normal;
 }
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-green);
+  color: white;
+  padding: 0.85rem 2.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #1e3a31;
+}
