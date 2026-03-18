@@ -1,0 +1,23 @@
+uuid: 65cb142f-33b9-411e-a951-e243211344c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_verd_h
+    - node.type.verdskra_lina
+id: node.verdskra_lina.field_verd_h
+field_name: field_verd_h
+entity_type: node
+bundle: verdskra_lina
+label: 'Verð H'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

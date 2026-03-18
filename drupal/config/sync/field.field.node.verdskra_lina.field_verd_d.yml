@@ -1,0 +1,23 @@
+uuid: d354b0f5-7216-4b1a-a29a-015be914911c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_verd_d
+    - node.type.verdskra_lina
+id: node.verdskra_lina.field_verd_d
+field_name: field_verd_d
+entity_type: node
+bundle: verdskra_lina
+label: 'Verð D'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

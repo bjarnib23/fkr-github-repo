@@ -1,0 +1,19 @@
+uuid: 0ecbf1a4-7c21-4844-a4c6-444934e62adb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_svar
+    - node.type.faq
+id: node.faq.field_svar
+field_name: field_svar
+entity_type: node
+bundle: faq
+label: Svar
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

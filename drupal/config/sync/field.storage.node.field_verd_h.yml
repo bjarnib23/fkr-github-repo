@@ -1,0 +1,20 @@
+uuid: 84d0be23-b24c-404f-9548-4b60993e6db3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_verd_h
+field_name: field_verd_h
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

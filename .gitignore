@@ -1,5 +1,5 @@
 # Drupal
-drupal/web/sites/default/settings.php
+drupal/web/sites/default/settings.ddev.php
 drupal/web/sites/default/files/
 drupal/vendor/
 drupal/web/core/

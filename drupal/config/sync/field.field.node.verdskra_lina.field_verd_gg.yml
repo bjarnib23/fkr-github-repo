@@ -1,0 +1,23 @@
+uuid: 669129a6-14b4-4c7e-b4cd-cd1be92d2ff1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_verd_gg
+    - node.type.verdskra_lina
+id: node.verdskra_lina.field_verd_gg
+field_name: field_verd_gg
+entity_type: node
+bundle: verdskra_lina
+label: 'Verð GG'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
