@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 757.54 236.35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #263a38;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #f4eded;
+      }
+
+      .cls-3 {
+        fill: #331b0e;
+      }
+
+      .cls-4 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 16.91px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-3" x="14.93" y="66.23" width="103.88" height="103.88"/>
+  <rect class="cls-2" x="523.54" y="66.23" width="103.88" height="103.88"/>
+  <rect class="cls-1" x="280.67" y="66.23" width="103.88" height="103.88"/>
+  <text class="cls-4" transform="translate(149.92 80.38)"><tspan x="0" y="0">#331B0E</tspan></text>
+  <text class="cls-4" transform="translate(415.66 80.38)"><tspan x="0" y="0">#263A38</tspan></text>
+  <text class="cls-4" transform="translate(673.87 80.38)"><tspan x="0" y="0">#F4EDED</tspan></text>
+</svg>
