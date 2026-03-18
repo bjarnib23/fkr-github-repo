@@ -1,17 +1,18 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './Navbar.css';
 
 function Navbar() {
   return (
     <nav>
       <div className="navbar-logo">
-        <Link to="/">FKR Rvk.</Link>
+        <NavLink to="/">FKR Rvk.</NavLink>
       </div>
       <ul>
-        <li><Link to="/boka-tima">Bóka Tíma</Link></li>
-        <li><Link to="/ferlid">Ferlið</Link></li>
-        <li><Link to="/algengar-spurningar">Algengar spurningar</Link></li>
-        <li><Link to="/gjafabref">Gjafabréf</Link></li>
-        <li><Link to="/verdskra">Verðskrá</Link></li>
+        <li><NavLink to="/boka-tima" className={({ isActive }) => isActive ? 'active' : ''}>Bóka Tíma</NavLink></li>
+        <li><NavLink to="/ferlid" className={({ isActive }) => isActive ? 'active' : ''}>Ferlið</NavLink></li>
+        <li><NavLink to="/algengar-spurningar" className={({ isActive }) => isActive ? 'active' : ''}>Algengar spurningar</NavLink></li>
+        <li><NavLink to="/gjafabref" className={({ isActive }) => isActive ? 'active' : ''}>Gjafabréf</NavLink></li>
+        <li><NavLink to="/verdskra" className={({ isActive }) => isActive ? 'active' : ''}>Verðskrá</NavLink></li>
       </ul>
     </nav>
   );
