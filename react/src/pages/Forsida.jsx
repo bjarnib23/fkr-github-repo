@@ -37,7 +37,12 @@ function Forsida() {
           }
         </div>
         <div className="forsida-cta-text">
-          <h1>Sérsaumuð jakkaföt</h1>
+          <p className="forsida-cta-eyebrow">FKR Reykjavík — Sérsaumuð klæði</p>
+          <h1>Jakkaföt <em>sérhönnuð</em> þér</h1>
+          <p className="forsida-cta-body">
+            Sérsaumuð jakkaföt, mótuð eftir þínum mælingum og stíl.
+            Tímalaus gæði fyrir þá sem vilja meira.
+          </p>
           <Link to="/boka-tima" className="btn-primary">Bóka Tíma</Link>
         </div>
       </section>

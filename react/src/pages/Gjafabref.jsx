@@ -110,18 +110,32 @@ function Gjafabref() {
 
   return (
     <div className="gjafabref-page">
-      <p className="gjafabref-intro">
-        Veldu upphæð gjafabréfs hér að neðan, ef þú ert með sérstaka ósk um upphæð gjafabréfs getur þú sett hana í athugasemdir og alltaf er hægt að hafa samband við okkur á <a href="mailto:frodi@fkr.is">frodi@fkr.is</a>.
-      </p>
-      <p className="gjafabref-intro">
-        Fylltu út eftirfarandi upplýsingar og við munum hafa samband til að staðfesta kaup.
-      </p>
 
-      <div className="gjafabref-card">
-        <h1>GJAFABRÉF FKR RVK</h1>
-        <p className="gjafabref-card-subtitle">Gjafabréf FKR er hægt að nýta í allar vörur og sérsaumuð jakkafót</p>
+      <section className="gjafabref-hero">
+        <p className="gjafabref-hero-eyebrow">FKR Reykjavík</p>
+        <h1>Gjafabréf</h1>
+        <p className="gjafabref-hero-sub">
+          Gjafabréf FKR er hægt að nýta í allar vörur og sérsaumuð jakkaföt.
+          Spurningar? Hafðu samband á <a href="mailto:frodi@fkr.is">frodi@fkr.is</a>.
+        </p>
+      </section>
 
-        <form className="gjafabref-form" onSubmit={handleSubmit} noValidate>
+      <div className="gjafabref-body">
+
+        <aside className="gjafabref-aside">
+          <div className="gjafabref-card-preview">
+            <h2>GJAFABRÉF<br />FKR RVK.</h2>
+            <p>Hægt að nýta í allar vörur og sérsaumuð jakkaföt hjá FKR Reykjavík.</p>
+          </div>
+        </aside>
+
+        <div className="gjafabref-form-wrapper">
+          <div className="gjafabref-form-header">
+            <h2>Kaupa gjafabréf</h2>
+            <p>Fylltu út og við staðfestum kaup.</p>
+          </div>
+
+          <form className="gjafabref-form" onSubmit={handleSubmit} noValidate>
           <select name="upphaed" value={form.upphaed} onChange={handleAmountChange} required>
             <option value="">Upphæð Gjafabréfs</option>
             {amounts.map(a => {
@@ -157,7 +171,8 @@ function Gjafabref() {
           <button type="submit" className="btn-primary" disabled={status === 'loading'}>
             {status === 'loading' ? 'Hleður...' : 'Staðfesta'}
           </button>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

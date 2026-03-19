@@ -3,14 +3,47 @@
   flex-direction: column;
 }
 
-/* Fabric info section */
-.verdskra-efni {
+/* ── Page hero banner ── */
+.verdskra-hero {
+  background-color: var(--color-green);
+  padding: 5rem 4rem 4rem;
   display: flex;
-  min-height: 500px;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-bottom: 3px solid var(--color-copper);
+}
+
+.verdskra-hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  margin: 0;
+}
+
+.verdskra-hero h1 {
+  font-size: 3.5rem;
+  font-weight: normal;
+  color: white;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.verdskra-hero-sub {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+/* ── Fabric info section ── */
+.verdskra-efni {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
 }
 
 .verdskra-efni-photo {
-  flex: 1;
   overflow: hidden;
 }
 
@@ -18,87 +51,208 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.verdskra-efni-photo img:hover {
+  transform: scale(1.03);
 }
 
 .verdskra-photo-placeholder {
   width: 100%;
   height: 100%;
-  min-height: 500px;
+  min-height: 520px;
   background-color: #c8bfb0;
 }
 
 .verdskra-efni-text {
-  flex: 1;
-  padding: 4rem 3rem;
+  padding: 5rem 4rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
   background-color: var(--color-bg);
 }
 
-.verdskra-efni-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.verdskra-efni-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  margin: 0;
+}
+
+.verdskra-efni-text h2 {
+  font-size: 2.2rem;
+  font-weight: normal;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.2;
 }
 
 .verdskra-efni-text p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-text-light);
-  line-height: 1.7;
+  line-height: 1.9;
+  max-width: 420px;
+  margin: 0;
 }
 
-/* Price table */
+/* ── Grade legend strip ── */
+.verdskra-grade-legend {
+  background-color: #ede8df;
+  padding: 2.5rem 4rem;
+  border-top: 1px solid rgba(45, 82, 71, 0.1);
+  border-bottom: 1px solid rgba(45, 82, 71, 0.1);
+}
+
+.verdskra-grade-legend p {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.verdskra-grade-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.verdskra-grade-pill {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(45, 82, 71, 0.3);
+  color: var(--color-green);
+}
+
+/* ── Price table ── */
 .verdskra-tafla-section {
-  padding: 3rem 2rem;
+  padding: 4rem;
   background-color: var(--color-bg);
+}
+
+.verdskra-tafla-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.verdskra-tafla-header p {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  margin: 0;
+}
+
+.verdskra-tafla-header h2 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: var(--color-text);
+  margin: 0;
 }
 
 .verdskra-tafla-wrapper {
   overflow-x: auto;
+  border: 1px solid rgba(45, 82, 71, 0.15);
 }
 
 .verdskra-tafla {
   width: 100%;
   border-collapse: collapse;
-  font-size: 1rem;
+  font-size: 0.85rem;
   min-width: 900px;
 }
 
-.verdskra-tafla th {
+.verdskra-tafla thead tr {
   background-color: var(--color-green);
+}
+
+.verdskra-tafla th {
   color: white;
-  padding: 0.75rem 0.5rem;
+  padding: 0.9rem 0.6rem;
   text-align: center;
   font-weight: normal;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.verdskra-tafla th:first-child {
+  text-align: left;
+  padding-left: 1.5rem;
+  min-width: 160px;
 }
 
 .verdskra-tafla td {
-  padding: 0.75rem 0.5rem;
+  padding: 0.85rem 0.6rem;
   text-align: center;
-  border-bottom: 1px solid #e0dbd0;
+  border-bottom: 1px solid rgba(45, 82, 71, 0.08);
   color: var(--color-text);
+  font-size: 0.85rem;
+}
+
+.verdskra-tafla tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .verdskra-vara {
   text-align: left !important;
-  font-weight: bold;
+  font-weight: normal;
   white-space: nowrap;
-  padding-left: 1rem !important;
+  padding-left: 1.5rem !important;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
 }
 
-.verdskra-tafla tbody tr:nth-child(even) {
-  background-color: #ede8df;
+.verdskra-tafla tbody tr:hover {
+  background-color: rgba(45, 82, 71, 0.04);
+}
+
+/* Copper accent on first column header */
+.verdskra-tafla thead th:first-child {
+  border-right: 1px solid var(--color-copper);
+}
+
+.verdskra-tafla tbody .verdskra-vara {
+  border-right: 1px solid rgba(196, 149, 106, 0.25);
 }
 
 .verdskra-status {
-  padding: 4rem;
+  padding: 6rem;
   text-align: center;
   color: var(--color-text-light);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .verdskra-hero {
+    padding: 3.5rem 2rem 3rem;
+  }
+
+  .verdskra-hero h1 {
+    font-size: 2.5rem;
+  }
+
   .verdskra-efni {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+
+  .verdskra-efni-text {
+    padding: 3rem 2rem;
+  }
+
+  .verdskra-grade-legend {
+    padding: 2rem;
+  }
+
+  .verdskra-tafla-section {
+    padding: 2.5rem 1.5rem;
   }
 }

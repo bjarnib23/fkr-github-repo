@@ -1,48 +1,122 @@
 .gjafabref-page {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  min-height: 80vh;
 }
 
-.gjafabref-intro {
-  text-align: center;
-  font-size: 0.95rem;
-  color: var(--color-text-light);
+/* Hero banner */
+.gjafabref-hero {
+  background-color: var(--color-green);
+  padding: 5rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-bottom: 3px solid var(--color-copper);
+}
+
+.gjafabref-hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  margin: 0;
+}
+
+.gjafabref-hero h1 {
+  font-size: 3.5rem;
+  font-weight: normal;
+  color: white;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.gjafabref-hero-sub {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  max-width: 520px;
   line-height: 1.7;
 }
 
-.gjafabref-intro a {
-  color: var(--color-green);
+.gjafabref-hero-sub a {
+  color: var(--color-copper);
 }
 
-.gjafabref-card {
-  width: 100%;
-  border: 1px solid #ddd;
-  padding: 2.5rem 2rem;
+/* Split layout */
+.gjafabref-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+}
+
+/* Left: visual aside */
+.gjafabref-aside {
+  background-color: #ede8df;
+  padding: 4rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  background-color: white;
+  justify-content: center;
+  gap: 2rem;
+  border-right: 1px solid rgba(45, 82, 71, 0.1);
 }
 
-.gjafabref-card h1 {
-  font-size: 1.4rem;
-  letter-spacing: 0.08em;
-  font-family: var(--font-sans);
-  font-weight: bold;
+.gjafabref-card-preview {
+  background-color: var(--color-green);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-bottom: 3px solid var(--color-copper);
 }
 
-.gjafabref-card-subtitle {
-  font-size: 0.9rem;
+.gjafabref-card-preview h2 {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: white;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.gjafabref-card-preview p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.gjafabref-aside-note {
+  font-size: 0.85rem;
   color: var(--color-text-light);
-  text-align: center;
-  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+/* Form side */
+.gjafabref-form-wrapper {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  background-color: var(--color-bg);
+}
+
+.gjafabref-form-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gjafabref-form-header h2 {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.gjafabref-form-header p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin: 0;
 }
 
 .gjafabref-form {
@@ -55,13 +129,22 @@
 .gjafabref-form input,
 .gjafabref-form select {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #ccc;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(45, 82, 71, 0.2);
   background-color: white;
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--color-text);
   outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+
+.gjafabref-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232D5247' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
 }
 
 .gjafabref-form input:focus,
@@ -73,9 +156,10 @@
   width: 100%;
   text-align: center;
   border: none;
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  padding: 1rem;
 }
 
 .gjafabref-form .btn-primary:disabled {
@@ -85,29 +169,55 @@
 
 .gjafabref-error {
   color: #c0392b;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-align: center;
 }
 
+/* Success state */
 .gjafabref-success {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 4rem 2rem;
+  gap: 1.5rem;
+  padding: 6rem 2rem;
 }
 
 .gjafabref-success-icon {
-  font-size: 6rem;
+  font-size: 4rem;
   color: var(--color-green);
 }
 
 .gjafabref-success h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: normal;
 }
 
 .gjafabref-success p {
   color: var(--color-text-light);
+  font-size: 0.95rem;
   max-width: 400px;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .gjafabref-hero {
+    padding: 3.5rem 2rem 3rem;
+  }
+
+  .gjafabref-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .gjafabref-body {
+    grid-template-columns: 1fr;
+  }
+
+  .gjafabref-aside {
+    padding: 2.5rem 2rem;
+  }
+
+  .gjafabref-form-wrapper {
+    padding: 2.5rem 2rem;
+  }
 }

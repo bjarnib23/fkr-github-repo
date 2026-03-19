@@ -5,8 +5,8 @@ const DRUPAL_URL = 'http://fkr-web.ddev.site';
 const GRADES = ['AA', 'A', 'B', 'BB', 'C', 'D', 'E', 'F', 'G', 'GG', 'H', 'HH', 'I', 'J', 'JJ', 'K', 'L', 'R'];
 
 function formatPrice(value) {
-  if (!value) return '';
-  return value.toLocaleString('is-IS');
+  if (!value) return '—';
+  return value.toLocaleString('is-IS') + ' kr';
 }
 
 function Verdskra() {
@@ -37,10 +37,17 @@ function Verdskra() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <div className="verdskra-status">Hleður...</div>;
+  if (loading) return <div className="verdskra-status">Hleður verðskrá…</div>;
 
   return (
     <div className="verdskra-page">
+
+      {/* Hero banner */}
+      <section className="verdskra-hero">
+        <p className="verdskra-hero-eyebrow">FKR Reykjavík</p>
+        <h1>Verðskrá</h1>
+        <p className="verdskra-hero-sub">Verð eru gefin upp í íslenskum krónum og eru án virðisaukaskatts.</p>
+      </section>
 
       {/* Fabric info section */}
       <section className="verdskra-efni">
@@ -51,20 +58,35 @@ function Verdskra() {
           }
         </div>
         <div className="verdskra-efni-text">
-          <h1>{pageContent?.title}</h1>
+          <p className="verdskra-efni-eyebrow">Um efnin</p>
+          <h2>{pageContent?.title ?? 'Efnin'}</h2>
           {pageContent?.field_texti?.split('\n').filter(p => p.trim()).map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
       </section>
 
+      {/* Grade legend strip */}
+      <div className="verdskra-grade-legend">
+        <p>Efni</p>
+        <div className="verdskra-grade-pills">
+          {GRADES.map(g => (
+            <span key={g} className="verdskra-grade-pill">{g}</span>
+          ))}
+        </div>
+      </div>
+
       {/* Price table */}
       <section className="verdskra-tafla-section">
+        <div className="verdskra-tafla-header">
+          <p>Verðlisti</p>
+          <h2>Verð eftir vöru og efnaflokki</h2>
+        </div>
         <div className="verdskra-tafla-wrapper">
           <table className="verdskra-tafla">
             <thead>
               <tr>
-                <th></th>
+                <th>Vara</th>
                 {GRADES.map(g => <th key={g}>{g}</th>)}
               </tr>
             </thead>
