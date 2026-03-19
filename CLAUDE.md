@@ -29,6 +29,24 @@ ddev drush cr               # Clear Drupal cache (required after PHP changes)
 ddev drush en fkr_booking   # Enable custom module
 ddev drush pmu fkr_booking  # Disable custom module
 ddev drush updb             # Run database updates
+ddev drush uli              # Generate one-time admin login link
+```
+
+### First-time setup (after cloning)
+```bash
+cd drupal
+ddev start
+composer install
+ddev import-db --file=../db.sql.gz
+ddev drush deploy
+ddev drush cr
+```
+
+### Keeping teammates in sync (run after Drupal content/config changes)
+```bash
+ddev drush cex -y                        # Export config to drupal/config/sync/
+ddev export-db --file=../db.sql.gz       # Export full database
+# then commit and push both
 ```
 
 ### Stripe (for local webhook testing)
@@ -83,16 +101,28 @@ Located at `drupal/web/modules/custom/fkr_booking/`.
 - Keys in `settings.php`: `stripe_secret_key`, `stripe_publishable_key`, `stripe_webhook_secret`
 
 ### Drupal Content Types used by React
-- `siduefni` — page content (title used to identify pages: "Forsíða", "Ferlið", etc.)
-- `verdskra_lina` — price list rows, sorted by `field_rodun`
+- `siduefni` — page content (title used to identify pages: "Forsíða", "Ferlið", "Efnin"); has `field_texti` (body) and `field_mynd` (image)
+- `verdskra_lina` — price list rows, sorted by `field_rodun`; price fields named `field_verd_aa`, `field_verd_a`, `field_verd_b`, etc.
 - `gjafabref_upphaed` — gift card amount options
-- `algengar_spurningar` — FAQ entries
-- Media images fetched via include: `field_mynd,field_mynd.field_media_image`
+- `faq` — FAQ entries with `field_svar` (answer as plain text)
+- Media images fetched via include: `field_mynd,field_mynd.field_media_image`; extract with `data.included.find(item => item.type === 'file--file')`
+
+### FAQ link syntax
+The `field_svar` plain text field supports a markdown-style link syntax parsed by `AlgengarSpurningar.jsx`:
+```
+[link text](/route)
+```
+e.g. `Sjá verðskrá [hér](/verdskra).` — the parser automatically prepends `/` if missing.
+
+### BokaTima — multi-step form
+`BokaTima.jsx` is a 4-step wizard: service card selection → contact info → date/notes → confirmation summary. Form state is flat; `panta` is a string array joined with `, ` before sending to the API.
 
 ### Design System
-- CSS variables in `react/src/index.css`: `--color-bg: #f4eded`, `--color-green: #2D5247`, `--color-text`, `--color-text-light`
+- CSS variables in `react/src/index.css`: `--color-bg: #f4eded`, `--color-green: #2D5247`, `--color-copper: #C4956A`, `--color-text`, `--color-text-light`
 - Font: Times New Roman sitewide (`--font-serif`), `font-weight: 500`
 - ISK amounts formatted with dots as thousands separator (e.g. `25.000 kr`) using regex: `.replace(/\B(?=(\d{3})+(?!\d))/g, '.')`
+- Page layout pattern: dark green hero banner with copper `border-bottom: 3px` → content sections below
+- Buttons: `.btn-primary` (green filled) and `.btn-outline` (ghost) defined per-page and in `index.css`
 
 ---
 
