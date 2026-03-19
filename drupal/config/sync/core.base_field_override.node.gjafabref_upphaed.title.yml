@@ -1,0 +1,18 @@
+uuid: e6bf0ccd-20a9-40e7-ada5-0fdfbc7cc399
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.gjafabref_upphaed
+id: node.gjafabref_upphaed.title
+field_name: title
+entity_type: node
+bundle: gjafabref_upphaed
+label: 'Verð í krónum'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

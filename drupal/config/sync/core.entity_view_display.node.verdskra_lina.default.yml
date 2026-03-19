@@ -1,0 +1,199 @@
+uuid: ecd742a3-0cfd-4e69-835f-3d006e03fb48
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.verdskra_lina.field_verd_a
+    - field.field.node.verdskra_lina.field_verd_aa
+    - field.field.node.verdskra_lina.field_verd_b
+    - field.field.node.verdskra_lina.field_verd_bb
+    - field.field.node.verdskra_lina.field_verd_c
+    - field.field.node.verdskra_lina.field_verd_d
+    - field.field.node.verdskra_lina.field_verd_e
+    - field.field.node.verdskra_lina.field_verd_f
+    - field.field.node.verdskra_lina.field_verd_g
+    - field.field.node.verdskra_lina.field_verd_gg
+    - field.field.node.verdskra_lina.field_verd_h
+    - field.field.node.verdskra_lina.field_verd_hh
+    - field.field.node.verdskra_lina.field_verd_i
+    - field.field.node.verdskra_lina.field_verd_j
+    - field.field.node.verdskra_lina.field_verd_jj
+    - field.field.node.verdskra_lina.field_verd_k
+    - field.field.node.verdskra_lina.field_verd_l
+    - field.field.node.verdskra_lina.field_verd_r
+    - node.type.verdskra_lina
+  module:
+    - user
+id: node.verdskra_lina.default
+targetEntityType: node
+bundle: verdskra_lina
+mode: default
+content:
+  field_verd_a:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_verd_aa:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_verd_b:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_verd_bb:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_verd_c:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_verd_d:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_verd_e:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_verd_f:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_verd_g:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_verd_gg:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_verd_h:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_verd_hh:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_verd_i:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_verd_j:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_verd_jj:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_verd_k:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_verd_l:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_verd_r:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

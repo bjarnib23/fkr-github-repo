@@ -1,0 +1,23 @@
+uuid: 7461a122-b3e7-45d4-a92e-2adcbf0d9df6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_verd_jj
+    - node.type.verdskra_lina
+id: node.verdskra_lina.field_verd_jj
+field_name: field_verd_jj
+entity_type: node
+bundle: verdskra_lina
+label: 'Verð JJ'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
