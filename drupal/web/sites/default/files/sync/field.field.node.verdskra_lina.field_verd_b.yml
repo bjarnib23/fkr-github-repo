@@ -1,0 +1,23 @@
+uuid: bc388db3-263d-4967-b760-d36d367f839c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_verd_b
+    - node.type.verdskra_lina
+id: node.verdskra_lina.field_verd_b
+field_name: field_verd_b
+entity_type: node
+bundle: verdskra_lina
+label: 'Verð B'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

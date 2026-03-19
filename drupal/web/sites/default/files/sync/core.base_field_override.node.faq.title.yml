@@ -1,0 +1,18 @@
+uuid: f1dd4330-885d-4bbb-83dc-cfa58169f98e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.faq
+id: node.faq.title
+field_name: title
+entity_type: node
+bundle: faq
+label: Spurning
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

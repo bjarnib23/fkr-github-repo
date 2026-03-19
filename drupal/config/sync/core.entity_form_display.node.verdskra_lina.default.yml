@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.verdskra_lina.field_rodun
     - field.field.node.verdskra_lina.field_verd_a
     - field.field.node.verdskra_lina.field_verd_aa
     - field.field.node.verdskra_lina.field_verd_b
@@ -35,6 +36,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_rodun:
+    type: number
+    weight: 139
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   field_verd_a:
     type: number

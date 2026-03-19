@@ -1,0 +1,19 @@
+uuid: 2184cf01-d6e5-4a87-ac04-345bfb455a26
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_texti
+field_name: field_texti
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

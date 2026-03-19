@@ -1,0 +1,37 @@
+uuid: f590b76e-b25c-4914-a8f2-c88eb3297eda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.siduefni.field_mynd
+    - field.field.node.siduefni.field_texti
+    - node.type.siduefni
+  module:
+    - user
+id: node.siduefni.default
+targetEntityType: node
+bundle: siduefni
+mode: default
+content:
+  field_mynd:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_texti:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

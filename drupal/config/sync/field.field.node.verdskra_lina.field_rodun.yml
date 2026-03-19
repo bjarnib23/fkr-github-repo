@@ -1,0 +1,23 @@
+uuid: 7ebb0dcb-af23-4c7c-ac26-53f1e56fe63c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rodun
+    - node.type.verdskra_lina
+id: node.verdskra_lina.field_rodun
+field_name: field_rodun
+entity_type: node
+bundle: verdskra_lina
+label: Röðun
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,19 @@
+uuid: 4795869e-36a6-41f4-8841-a019b800c3e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_texti
+    - node.type.siduefni
+id: node.siduefni.field_texti
+field_name: field_texti
+entity_type: node
+bundle: siduefni
+label: Texti
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
