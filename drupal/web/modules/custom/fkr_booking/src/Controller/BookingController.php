@@ -3,7 +3,9 @@
 namespace Drupal\fkr_booking\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Link;
 use Drupal\Core\Site\Settings;
+use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,10 +18,11 @@ class BookingController extends ControllerBase {
       ->execute()
       ->fetchAll();
 
-    $header = ['#', 'Nafn', 'Tölvupóstur', 'Sími', 'Panta', 'Dagsetning', 'Athugasemd', 'Móttekið'];
+    $header = ['#', 'Nafn', 'Tölvupóstur', 'Sími', 'Panta', 'Dagsetning', 'Athugasemd', 'Móttekið', ''];
 
     $data = [];
     foreach ($rows as $row) {
+      $deleteLink = Link::fromTextAndUrl('Eyða', Url::fromRoute('fkr_booking.delete_booking', ['id' => $row->id]))->toString();
       $data[] = [
         $row->id,
         $row->nafn,
@@ -29,6 +32,7 @@ class BookingController extends ControllerBase {
         $row->dagsetning,
         $row->athugasemd,
         date('d.m.Y H:i', $row->created),
+        ['data' => ['#markup' => $deleteLink]],
       ];
     }
 
@@ -145,10 +149,11 @@ class BookingController extends ControllerBase {
       ->execute()
       ->fetchAll();
 
-    $header = ['#', 'Upphæð', 'Kaupandi', 'Viðtakandi', 'Tölvupóstur', 'Sími', 'Athugasemd', 'Móttekið'];
+    $header = ['#', 'Upphæð', 'Kaupandi', 'Viðtakandi', 'Tölvupóstur', 'Sími', 'Athugasemd', 'Móttekið', ''];
 
     $data = [];
     foreach ($rows as $row) {
+      $deleteLink = Link::fromTextAndUrl('Eyða', Url::fromRoute('fkr_booking.delete_gjafabref', ['id' => $row->id]))->toString();
       $data[] = [
         $row->id,
         $row->upphaed,
@@ -158,6 +163,7 @@ class BookingController extends ControllerBase {
         $row->simi,
         $row->athugasemd,
         date('d.m.Y H:i', $row->created),
+        ['data' => ['#markup' => $deleteLink]],
       ];
     }
 
