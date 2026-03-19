@@ -9,47 +9,134 @@
  * Implements hook_mail().
  */
 function fkr_booking_mail($key, &$message, $params) {
-  $message['headers']['Content-Type'] = 'text/plain; charset=UTF-8; format=flowed';
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8';
+  $message['headers']['MIME-Version'] = '1.0';
 
   switch ($key) {
+
     case 'booking_confirmation':
-      $message['subject'] = 'Bókun móttekin - FKR Reykjavík';
-      $message['body'][] = 'Hæ ' . $params['nafn'] . ',';
-      $message['body'][] = '';
-      $message['body'][] = 'Við höfum móttekið bókunarbeiðni þína. Við munum hafa samband fljótlega til að staðfesta tímann.';
-      $message['body'][] = '';
-      $message['body'][] = 'Upplýsingar um bókun:';
-      $message['body'][] = 'Nafn: ' . $params['nafn'];
+      $message['subject'] = 'Bókun móttekin – FKR Reykjavík';
+
+      $rows = '';
       if (!empty($params['panta'])) {
-        $message['body'][] = 'Pöntun: ' . $params['panta'];
+        $rows .= _fkr_email_row('Þjónusta', htmlspecialchars($params['panta']));
       }
       if (!empty($params['dagsetning'])) {
-        $message['body'][] = 'Dagsetning: ' . $params['dagsetning'];
+        $rows .= _fkr_email_row('Dagsetning', htmlspecialchars($params['dagsetning']));
+      }
+      if (!empty($params['simi'])) {
+        $rows .= _fkr_email_row('Sími', htmlspecialchars($params['simi']));
       }
       if (!empty($params['athugasemd'])) {
-        $message['body'][] = 'Athugasemd: ' . $params['athugasemd'];
+        $rows .= _fkr_email_row('Athugasemd', htmlspecialchars($params['athugasemd']));
       }
-      $message['body'][] = '';
-      $message['body'][] = 'Kveðja,';
-      $message['body'][] = 'FKR Reykjavík';
+
+      $message['body'][] = \Drupal\Core\Render\Markup::create(_fkr_email_wrap(
+        'Bókun móttekin',
+        '<p style="margin:0 0 16px; font-size:16px; color:#1a1a1a;">Hæ ' . htmlspecialchars($params['nafn']) . ',</p>
+         <p style="margin:0 0 24px; font-size:15px; color:#555555; line-height:1.8;">Við höfum móttekið bókunarbeiðni þína og munum hafa samband fljótlega til að staðfesta tímann. Við hlökkum til að hitta þig.</p>'
+        . _fkr_email_details('Upplýsingar um bókun', $rows)
+        . '<p style="margin:24px 0 0; font-size:14px; color:#888888; line-height:1.7; border-top:1px solid #e8e0d8; padding-top:20px;">Ef þú hefur einhverjar spurningar, ekki hika við að hafa samband.</p>'
+      ));
       break;
 
     case 'gjafabref_confirmation':
-      $message['subject'] = 'Gjafabréf FKR Reykjavík - Greiðsla móttekin';
-      $message['body'][] = 'Hæ ' . $params['nafn_kaupanda'] . ',';
-      $message['body'][] = '';
-      $message['body'][] = 'Greiðsla fyrir gjafabréf hefur tekist. Gjafabréfið verður sent á þig fljótlega.';
-      $message['body'][] = '';
-      $message['body'][] = 'Upplýsingar um gjafabréf:';
-      $message['body'][] = 'Upphæð: ' . $params['upphaed'];
-      $message['body'][] = 'Kaupandi: ' . $params['nafn_kaupanda'];
-      $message['body'][] = 'Viðtakandi: ' . $params['nafn_vidtakanda'];
+      $message['subject'] = 'Gjafabréf FKR Reykjavík – Greiðsla móttekin';
+
+      $rows = _fkr_email_row('Upphæð', htmlspecialchars($params['upphaed']) . ' kr');
+      $rows .= _fkr_email_row('Kaupandi', htmlspecialchars($params['nafn_kaupanda']));
+      $rows .= _fkr_email_row('Viðtakandi', htmlspecialchars($params['nafn_vidtakanda']));
       if (!empty($params['athugasemd'])) {
-        $message['body'][] = 'Athugasemd: ' . $params['athugasemd'];
+        $rows .= _fkr_email_row('Athugasemd', htmlspecialchars($params['athugasemd']));
       }
-      $message['body'][] = '';
-      $message['body'][] = 'Kveðja,';
-      $message['body'][] = 'FKR Reykjavík';
+
+      $message['body'][] = \Drupal\Core\Render\Markup::create(_fkr_email_wrap(
+        'Greiðsla móttekin',
+        '<p style="margin:0 0 16px; font-size:16px; color:#1a1a1a;">Hæ ' . htmlspecialchars($params['nafn_kaupanda']) . ',</p>
+         <p style="margin:0 0 24px; font-size:15px; color:#555555; line-height:1.8;">Greiðsla fyrir gjafabréf hefur tekist. Við munum senda gjafabréfið á þig fljótlega. Þakka þér kærlega fyrir!</p>'
+        . _fkr_email_details('Upplýsingar um gjafabréf', $rows)
+        . '<p style="margin:24px 0 0; font-size:14px; color:#888888; line-height:1.7; border-top:1px solid #e8e0d8; padding-top:20px;">Gjafabréfið er hægt að nýta í allar vörur og sérsaumuð jakkaföt hjá FKR Reykjavík.</p>'
+      ));
       break;
   }
+}
+
+/**
+ * Wraps email content in the full FKR HTML template.
+ */
+function _fkr_email_wrap($heading, $content) {
+  return '<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4eded; font-family: Georgia, Times New Roman, serif;">
+    <tr>
+      <td align="center" style="padding:48px 20px;">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; width:100%;">
+
+          <!-- Logo header -->
+          <tr>
+            <td style="background-color:#2D5247; padding:40px; text-align:center; border-bottom:3px solid #C4956A;">
+              <p style="margin:0 0 6px; font-size:34px; color:#ffffff; letter-spacing:0.12em; font-family: Georgia, \'Times New Roman\', serif; font-weight:normal;">FKR REYKJAVÍK</p>
+              <p style="margin:0; font-size:10px; color:rgba(255,255,255,0.55); letter-spacing:0.25em; text-transform:uppercase;">Sérsaumuð klæði</p>
+            </td>
+          </tr>
+
+          <!-- Heading strip -->
+          <tr>
+            <td style="background-color:#f4eded; padding:28px 40px 0; border-left:3px solid #f4eded; border-right:3px solid #f4eded;">
+              <p style="margin:0; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#C4956A;">' . htmlspecialchars($heading) . '</p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="background-color:#f4eded; padding:16px 40px 40px; border-left:3px solid #f4eded; border-right:3px solid #f4eded;">
+              ' . $content . '
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#2D5247; padding:28px 40px; border-top:3px solid #C4956A;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="font-size:13px; color:rgba(255,255,255,0.75); line-height:1.8; font-family: Georgia, \'Times New Roman\', serif;">
+                    <strong style="display:block; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#C4956A; margin-bottom:8px;">Hafðu samband</strong>
+                    Fossvogur, Reykjavík<br>
+                    Sími: <a href="tel:6910040" style="color:rgba(255,255,255,0.75); text-decoration:none;">691 0040</a><br>
+                    <a href="mailto:frodi@fkr.is" style="color:rgba(255,255,255,0.75); text-decoration:none;">frodi@fkr.is</a>
+                  </td>
+                  <td align="right" style="font-size:11px; color:rgba(255,255,255,0.4); font-family: Georgia, \'Times New Roman\', serif; vertical-align:bottom;">
+                    © 2026 FKR Reykjavík
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>';
+}
+
+/**
+ * Renders a details table with labelled rows.
+ */
+function _fkr_email_details($title, $rows) {
+  return '<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:8px; border:1px solid #e0d8d0; background-color:#ffffff;">
+    <tr>
+      <td colspan="2" style="padding:12px 20px; border-bottom:2px solid #2D5247;">
+        <p style="margin:0; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#2D5247;">' . htmlspecialchars($title) . '</p>
+      </td>
+    </tr>
+    ' . $rows . '
+  </table>';
+}
+
+/**
+ * Renders a single label/value row in the details table.
+ */
+function _fkr_email_row($label, $value) {
+  return '<tr>
+    <td style="padding:12px 20px; width:40%; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#888888; border-bottom:1px solid #f0ebe4; white-space:nowrap; vertical-align:top;">' . $label . '</td>
+    <td style="padding:12px 20px; font-size:14px; color:#1a1a1a; border-bottom:1px solid #f0ebe4; vertical-align:top;">' . $value . '</td>
+  </tr>';
 }
